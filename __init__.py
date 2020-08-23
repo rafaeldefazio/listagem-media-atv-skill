@@ -26,7 +26,9 @@ class ListagemMediaAtv(MycroftSkill):
 			self.speak('Ocorreu algum problema ao me conectar ao servidor de dados. Por favor, verifique as credenciais e tente novamente.')
 
 		else:
-			rn = r.json()[0]
+			rn = r.json()
+
+			self.speak('A seguir, listarei o tempo médio que as gestantes executaram as atividades físicas. O período de avaliação se restringe ao último mês')
 
 			for ri in rn:
 

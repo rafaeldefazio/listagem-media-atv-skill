@@ -1,2 +1,4 @@
-Para a atividade "{atividade}", as gestantes passaram em média {tempo_total} a realizando nos últimos 30 dias.
-A atividade "{atividade}" foi realizada em média por {tempo_total} no último mês.
+Atividade: "{atividade}". Tempo médio: {tempo_total}.
+Atividade física: "{atividade}". Em média, {tempo_total}
+Atividade: "{atividade}". Tempo: {tempo_total}
+Para "{atividade}", passaram em média {tempo_total}
