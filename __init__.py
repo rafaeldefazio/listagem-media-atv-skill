@@ -10,12 +10,27 @@ class ListagemMediaAtv(MycroftSkill):
 	@intent_file_handler('atv.media.listagem.intent')
 	def handle_atv_media_listagem(self, message):
 
-		r = requests.get('http://localhost:3000/media-atividades-30dias')
-		rn = r.json()[0]
+		ipAPI = 'http://177.21.53.138:3000'
 
-		for ri in rn:
 
-			self.speak_dialog('atv.media.listagem', data=ri)
+		payload = {'user':'publico','password':'123'}
+		getToken = requests.post(ipAPI + "/login", data=payload)
+
+
+		myToken = getToken.content;
+		headers = {'x-access-token': myToken}
+
+		r = requests.get(ipAPI + '/media-atividades-30dias', headers=headers)
+
+		if r.status_code != 200:
+			self.speak('Ocorreu algum problema ao me conectar ao servidor de dados. Por favor, verifique as credenciais e tente novamente.')
+
+		else:
+			rn = r.json()[0]
+
+			for ri in rn:
+
+				self.speak_dialog('atv.media.listagem', data=ri)
 
 
 def create_skill():
